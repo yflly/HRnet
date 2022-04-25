@@ -1,3 +1,23 @@
 .container {
   margin: 0 20px 0 20px;
 }
+
+.container__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.container__header input {
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  margin: 4px;
+  padding: 5px;
+}
+
+.container__title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #1c8372;
+}
