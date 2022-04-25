@@ -1,9 +1,9 @@
-.custom-select__control {
-  background-color: #d4b89f !important;
-  cursor: pointer !important;
-  width: 93%;
+.wrapper {
+  margin: 10px 20px;
 }
 
-.custom-select__single-value {
-  color: #3f4144 !important;
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    margin: 20px 500px;
+  }
 }
