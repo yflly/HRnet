@@ -11,13 +11,13 @@ const CreateSelect = (props) => {
       value={{ label: props.newEmployee[props.inputName] }}
       filterOption={createFilter({ ignoreAccents: false })}
       classNamePrefix="custom-select"
+      required
       onChange={(e) => {
         props.setNewEmployee((state) => ({
           ...state,
           [props.inputName]: e.label,
         }));
       }}
-      required
     />
   );
 };
