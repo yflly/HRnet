@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { statesUSA, departments } from "../../Data/data";
+import "./Form.css";
 
 //CONTAINERS
 import CreateSelect from "../Select/CreateSelect";
@@ -35,9 +36,6 @@ function Form() {
   return (
     <div className="new-employee">
       <main className="main-new-employee">
-        <Link to={`/employees`}>
-          <span>New employee</span>
-        </Link>
         <form action="" className="form-classic" onSubmit={formSubmit}>
           <div className="row">
             <div className="row-50">
@@ -149,9 +147,11 @@ function Form() {
               />
             </div>
           </div>
-          <button className="btn-submit" type="submit">
-            Save
-          </button>
+          <div className="btn">
+            <button className="btn-submit" type="submit">
+              Save
+            </button>
+          </div>
         </form>
       </main>
     </div>
