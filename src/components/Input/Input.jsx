@@ -9,6 +9,7 @@ const Input = (props) => {
       name={props.inputName}
       aria-labelledby={props.inputName}
       value={props.newEmployee[props.inputName]}
+      required
       onChange={(e) => {
         props.setNewEmployee((state) => ({
           ...state,
