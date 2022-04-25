@@ -36,9 +36,10 @@
   opacity: 1;
   transition: all 0.3s ease 0s;
   padding-left: 30px;
+  opacity: 0.8;
 }
 
-.btn-submit :hover {
+.btn-submit:hover {
   cursor: pointer;
-  opacity: 0.75;
+  opacity: 2;
 }
