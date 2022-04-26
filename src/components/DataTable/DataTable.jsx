@@ -1,4 +1,5 @@
 import DataTable from "react-data-table-component";
+import moment from "moment";
 
 const columns = [
   {
@@ -49,6 +50,11 @@ const columns = [
 ];
 
 export default function CurrentEmployee({ data }) {
+  data = data.map((employee) => ({
+    ...employee,
+    birthdate: moment(employee.birthdate).format("MM/DD/yyyy"),
+    startDate: moment(employee.startDate).format("MM/DD/yyyy"),
+  }));
   return (
     <>
       <header className="header">
