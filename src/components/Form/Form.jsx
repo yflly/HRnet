@@ -5,8 +5,15 @@ import "./Form.css";
 
 //CONTAINERS
 import CreateSelect from "../Select/CreateSelect";
-import CreateDatePicker from "../DatePicker/CreateDatePicker";
+import React from "react";
+
+import Modal, { useModal } from "react-modal-yflly";
+
 import Input from "../Input/Input";
+
+//TEST MODAL
+//import Modal from "../Modal/Modal";
+//import useModal from "../Modal/useModal";
 
 const initialStateEmployee = {
   firstName: "",
@@ -22,10 +29,14 @@ const initialStateEmployee = {
 
 function Form() {
   const [newEmployee, setNewEmployee] = useState(initialStateEmployee);
+  const { showModal, activeModal, handleOpenModal, handleCloseModal } =
+    useModal();
 
   const formSubmit = (e) => {
     e.preventDefault();
     let employees = JSON.parse(localStorage.getItem("employees")) || [];
+
+    handleOpenModal("submitModal"); //Open Modal
 
     employees.push(newEmployee);
     localStorage.setItem("employees", JSON.stringify(employees));
@@ -65,10 +76,12 @@ function Form() {
                 Birthdate
               </label>
 
-              <CreateDatePicker
-                inputName="birthdate"
-                newEmployee={newEmployee}
-                setNewEmployee={setNewEmployee}
+              <input
+                type="date"
+                name="birthdate"
+                onChange={(e) =>
+                  (newEmployee.birthdate = e.currentTarget.value)
+                }
               />
             </div>
             <div className="row-50">
@@ -76,10 +89,12 @@ function Form() {
                 Start date
               </label>
 
-              <CreateDatePicker
-                inputName="startDate"
-                newEmployee={newEmployee}
-                setNewEmployee={setNewEmployee}
+              <input
+                type="date"
+                name="startDate"
+                onChange={(e) =>
+                  (newEmployee.startDate = e.currentTarget.value)
+                }
               />
             </div>
           </div>
@@ -151,6 +166,19 @@ function Form() {
             <button className="btn-submit" type="submit">
               Save
             </button>
+            <Modal
+              isOpen={showModal && activeModal === "submitModal"}
+              close={handleCloseModal}
+              addCloseEscape={true}
+            >
+              <br />
+              <h3>The employee has been registered !</h3>
+              <Link to="/employees" className="buttonLink">
+                <button type="button" className="buttonDefault">
+                  Employee list
+                </button>
+              </Link>
+            </Modal>
           </div>
         </form>
       </main>
