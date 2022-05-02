@@ -106,11 +106,6 @@ const Modal = ({
         </div>,
         document.body
       )
-    : spinner
-    ? ReactDOM.createPortal(
-        <Spinner customClassName={customClassName} />,
-        document.body
-      )
     : null;
 };
 
