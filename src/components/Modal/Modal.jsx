@@ -1,7 +1,6 @@
 import "./Modal.css";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 
 const Modal = ({
