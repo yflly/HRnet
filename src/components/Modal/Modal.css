@@ -1,25 +1,3 @@
-.modalOverlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 1040;
-}
-
-.modalWrapper {
-  height: 100%;
-  left: 0;
-  outline: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1050;
-}
-
 .modal {
   background: #b2d4d3;
   border-radius: 10px;
@@ -27,7 +5,7 @@
   max-width: 400px;
   padding: 2rem;
   font-weight: 100;
-  position: relative;
+
   z-index: 100;
 }
 
@@ -37,20 +15,17 @@
   margin: 1rem;
 }
 
-.modalCloseButton {
+.close-modal {
   background-color: #dc0e0e;
   color: #fff;
-  border: none;
+  height: 20px;
+
   cursor: pointer;
-  font-size: 16px;
   transition: 0.3s;
   opacity: 0.6;
-  position: absolute;
-  right: 2rem;
-  top: 2rem;
 }
 
-.modalCloseButton:hover {
+.close-modal:hover {
   transform: scale(1.1);
   opacity: 1;
 }
@@ -68,7 +43,8 @@
 }
 
 .modalButton,
-.buttonDefault {
+.buttonDefault,
+.btn__primary {
   background: #4cbf6a;
   border: none;
   border-radius: 0.3125rem;
@@ -81,7 +57,8 @@
 }
 
 .modalButton:hover,
-.buttonDefault:hover {
+.buttonDefault:hover,
+.btn__primary:hover {
   background: #007922;
   color: #fff;
   transform: scale(1.1);
