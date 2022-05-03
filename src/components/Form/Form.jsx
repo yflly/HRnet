@@ -2,12 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { statesUSA, departments } from "../../Data/data";
 import "./Form.css";
+import "../Modal/Modal.css";
 
 //CONTAINERS
 import CreateSelect from "../Select/CreateSelect";
 import React from "react";
-
-import Modal, { useModal } from "react-modal-yflly";
+import { Modal } from "modal-by-yflly";
 
 import Input from "../Input/Input";
 
@@ -27,19 +27,21 @@ const initialStateEmployee = {
   department: "",
 };
 
-function Form() {
+const Form = () => {
+  //function Form() {
   const [newEmployee, setNewEmployee] = useState(initialStateEmployee);
-  const { showModal, activeModal, handleOpenModal, handleCloseModal } =
-    useModal();
+  const [isOpen, setOpen] = useState();
+
+  const toggleModal = () => {
+    setOpen(!isOpen);
+  };
 
   const formSubmit = (e) => {
     e.preventDefault();
     let employees = JSON.parse(localStorage.getItem("employees")) || [];
-
-    handleOpenModal("submitModal"); //Open Modal
-
     employees.push(newEmployee);
     localStorage.setItem("employees", JSON.stringify(employees));
+    toggleModal();
     setNewEmployee(initialStateEmployee);
     console.log(employees);
   };
@@ -162,28 +164,36 @@ function Form() {
               />
             </div>
           </div>
+
           <div className="btn">
             <button className="btn-submit" type="submit">
               Save
             </button>
-            <Modal
-              isOpen={showModal && activeModal === "submitModal"}
-              close={handleCloseModal}
-              addCloseEscape={true}
-            >
-              <br />
-              <h3>The employee has been registered !</h3>
-              <Link to="/employees" className="buttonLink">
-                <button type="button" className="buttonDefault">
-                  Employee list
-                </button>
-              </Link>
-            </Modal>
           </div>
         </form>
+        <Modal
+          isOpen={isOpen}
+          canClose={true}
+          closeBtnContent={<>X</>}
+          footerContent={
+            <>
+              <Link to="/employees">
+                <button className="btn__primary">Employees list</button>
+              </Link>
+            </>
+          }
+          title="Congrats!"
+          haveFooter={true}
+          modalContent={
+            <span className="modal__content">
+              The employee has been registered !
+            </span>
+          }
+          toggleModal={toggleModal}
+        ></Modal>
       </main>
     </div>
   );
-}
+};
 
 export default Form;
