@@ -81,6 +81,7 @@ const Form = () => {
               <input
                 type="date"
                 name="birthdate"
+                aria-label="Birthdate"
                 onChange={(e) =>
                   (newEmployee.birthdate = e.currentTarget.value)
                 }
@@ -94,6 +95,7 @@ const Form = () => {
               <input
                 type="date"
                 name="startDate"
+                aria-label="Start Date"
                 onChange={(e) =>
                   (newEmployee.startDate = e.currentTarget.value)
                 }
