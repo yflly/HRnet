@@ -5,14 +5,15 @@ import { useState } from "react";
 
 export default function CurrentEmployee() {
   const [foundEmployees, setFoundEmployees] = useState("");
-  const localData = JSON.parse(localStorage.getItem("employees"));
+  let localData = JSON.parse(localStorage.getItem("employees"));
   let dataArr = [];
   localData ? (dataArr = [...data, ...localData]) : (dataArr = [...data]);
 
+  //HandleSearch lastname, firstname or department start with 3 letters
+  //And display the results
   const handleSearch = (event) => {
-    console.log(dataArr);
     const query = event.target.value;
-    console.log(query);
+
     if (query.length >= 3) {
       const results = dataArr.filter((employee) => {
         return (
@@ -21,7 +22,6 @@ export default function CurrentEmployee() {
           employee.department.toLowerCase().startsWith(query.toLowerCase())
         );
       });
-      console.log(results);
 
       setFoundEmployees(results);
     } else {
