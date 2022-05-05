@@ -32,10 +32,12 @@ const Form = () => {
   const [newEmployee, setNewEmployee] = useState(initialStateEmployee);
   const [isOpen, setOpen] = useState();
 
+  //toggleModal When the modal is open
   const toggleModal = () => {
     setOpen(!isOpen);
   };
 
+  //Form Submit for add a new employee with confirmation modal
   const formSubmit = (e) => {
     e.preventDefault();
     let employees = JSON.parse(localStorage.getItem("employees")) || [];
@@ -43,7 +45,7 @@ const Form = () => {
     localStorage.setItem("employees", JSON.stringify(employees));
     toggleModal();
     setNewEmployee(initialStateEmployee);
-    console.log(employees);
+    e.target.reset();
   };
 
   return (
@@ -80,6 +82,7 @@ const Form = () => {
 
               <input
                 type="date"
+                id="birthdate"
                 name="birthdate"
                 aria-label="Birthdate"
                 onChange={(e) =>
@@ -94,6 +97,7 @@ const Form = () => {
 
               <input
                 type="date"
+                id="startDate"
                 name="startDate"
                 aria-label="Start Date"
                 onChange={(e) =>
