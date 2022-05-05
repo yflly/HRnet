@@ -1,6 +1,7 @@
 import DataTable from "react-data-table-component";
 import moment from "moment";
 
+//Columns of DataTable
 const columns = [
   {
     name: "First Name",
@@ -49,6 +50,7 @@ const columns = [
   },
 ];
 
+//I format birthdate and startDate MM/DD/YYYY with "moment" to remove Hours
 export default function CurrentEmployee({ data }) {
   data = data.map((employee) => ({
     ...employee,
