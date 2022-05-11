@@ -2,7 +2,7 @@
 
 # HRnet
 
-A React app for can be used to manage its employees
+A React app for manage employees
 
 ## Dependencies
 
