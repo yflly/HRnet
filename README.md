@@ -4,6 +4,9 @@
 
 A React app for manage employees
 
+
+![The picture](./HRnet.png "picture")
+
 ## Dependencies
 
 - [React](https://reactjs.org/) v18.0.0
